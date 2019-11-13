@@ -9,9 +9,7 @@ function getSolutions(a, b, c) {
   if (D === 0) {
     let x1 = -b / (2 * a);
     result.roots = [x1];
-  }
-
-  if (D > 0) {
+  } else if (D > 0) {
     let x1 = (-b - Math.sqrt(D)) / (2 * a);
     let x2 = (-b + Math.sqrt(D)) / (2 * a);
     result.roots = [x1, x2];
@@ -82,8 +80,9 @@ console.log('\n ---task-3--- \n');
 
 function getPersonData(secretData) {
   let total = {};
+  let newInfo = '';
 
-  for (info in secretData) {
+  for (let info in secretData) {
     if (info === 'aaa') {
       newInfo = 'firstName';
     } else {
