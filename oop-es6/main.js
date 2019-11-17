@@ -171,11 +171,11 @@ class StudentLog {
     return this.name;
   }
 
-  addGrade(grade, subject){
-    if(!(subject in this.journal)){
+  addGrade(grade, subject) {
+    if (!(subject in this.journal)) {
       this.journal[subject] = [];
     }
-    switch(grade) {
+    switch (grade) {
       case 1:
       case 2:
       case 3:
@@ -188,7 +188,7 @@ class StudentLog {
     }
     return this.journal[subject].length;
   }
-  
+
   getAverageBySubject(subject) {
     let average = null;
     if (subject in this.journal) {
