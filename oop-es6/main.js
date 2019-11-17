@@ -1,4 +1,11 @@
 'use strict';
+
+
+//let arr = [1, 2, 3, 4, 5];
+//  alert( arr.indexOf( 1.2 ) != -1 );
+
+
+
 //task-1 -----------------------------------------------------------
 console.log('Задача 1 "Оружие"');
 
@@ -164,18 +171,24 @@ class StudentLog {
     return this.name;
   }
 
-  addGrade(grade, subject) {
-    if (typeof grade !== 'number' || 0 > grade > 5) {
-      return `Вы пытались поставить оценку "${grade}" по предмету "${subject}". Допускаются только числа от 1 до 5.`
-    } else if (subject in this.journal) {
-      this.journal[subject].push(grade);
-      return this.journal[subject].length;
-    } else {
-      this.journal[subject] = [grade];
-      return 1;
+  addGrade(grade, subject){
+    if(!(subject in this.journal)){
+      this.journal[subject] = [];
     }
+    switch(grade) {
+      case 1:
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+        this.journal[subject].push(grade);
+        break;
+      default:
+        console.log(`Вы пытались поставить оценку "${grade}" по предмету "${subject}". Допускаются только целые числа от 1 до 5.`);
+    }
+    return this.journal[subject].length;
   }
-
+  
   getAverageBySubject(subject) {
     let average = null;
     if (subject in this.journal) {
