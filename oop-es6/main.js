@@ -190,18 +190,16 @@ class StudentLog {
   }
 
   getAverageBySubject(subject) {
-    let average = null;
-    if (subject in this.journal) {
-      for (let grade of this.journal[subject]) {
-        average += grade;
-      }
-      average = average / this.journal[subject].length;
-      return average;
+    if (subject in this.journal){
+      let average = this.journal[subject].reduce(function(sum, current) {
+        return sum + current
+      });
+      return average / this.journal[subject].length;
     } else {
       return 0;
     }
   }
-
+  
   getTotalAverage() {
     let totalAverage = null;
     let gradeLength = null;
@@ -221,7 +219,7 @@ console.log(log.getName());
 
 console.log(log.addGrade(3, 'algebra'));
 console.log(log.addGrade('отлично!', 'match'));
-console.log(log.addGrade(4, 'algebra'));
+console.log(log.addGrade(5, 'algebra'));
 console.log(log.addGrade(5, 'geometry'));
 console.log(log.addGrade(4, 'biology'));
 console.log(log.addGrade(4, 'geometry'));
