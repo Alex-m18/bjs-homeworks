@@ -9,13 +9,13 @@ function initCheckBirthday() {
 function checkBirthday(birthday) {
   // код для задачи №1 писать здесь
 
-  let now = +new Date(); //console.log(`Текущая дата: ${now}`);
+  const now = +new Date(); //console.log(`Текущая дата: ${now}`);
 
-  let date = +new Date(birthday); //console.log(`День рождения: ${date}`);
+  const date = +new Date(birthday); //console.log(`День рождения: ${date}`);
 
-  let diff = now - date;
+  const diff = now - date;
 
-  let age = Math.floor(diff / (1000 * 3600 * 24 * 365.2425)); //console.log(`Возраст: ${age}`);
+  const age = Math.floor(diff / (1000 * 3600 * 24 * 365.2425)); //console.log(`Возраст: ${age}`);
   //средняя продолжительность года по Григорианскомку календарю составляет 365,2425 суток
 
   return (age >= 18);
@@ -36,10 +36,9 @@ function initPrintAnimalSound() {
 function getAnimalSound(animal) {
   // код для задачи №2 писать здесь
 
-  let sound = animal.sound;
-
-  if (sound === undefined) {
-    sound = null;
+  if (animal.sound === undefined) {
+    let sound = animal.sound;
+	sound = null;
   }
 
   return (sound);
@@ -61,9 +60,9 @@ function initCalculateStatement() {
 function getAverageMark(marks) {
   // код для задачи №3 писать здесь
 
-  average = marks.reduce((a, b) => Number(a) + Number(b)) / marks.length; // средняя оценка
+  const average = marks.reduce((a, b) => Number(a) + Number(b)) / marks.length; // средняя оценка
 
-  let roundeAverage = Math.round(average);
+  const roundeAverage = Math.round(average);
 
   return roundeAverage;
 }
